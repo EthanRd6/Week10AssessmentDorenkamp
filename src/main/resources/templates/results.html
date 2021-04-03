@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Fighters</title>
+</head>
+<body>
+	<form>
+		<table>
+			<tr th:each="currentFighter : ${fighters}">
+				<td th:text="${currentFighter.name}" />
+				<td>: Height:</td>
+				<td th:text="${currentFighter.height}" />
+				<td>Weight:</td>
+				<td th:text="${currentFighter.weight}" />
+				<td>Wins:</td>
+				<td th:text="${currentFighter.wins}" />
+				<td>Losses:</td>
+				<td th:text="${currentFighter.losses}" />
+				<td>Ties:</td>
+				<td th:text="${currentFighter.ties}" />
+				<td>Winning Average:</td>
+				<td th:text="${#numbers.formatDecimal(currentFighter.average, 0 , 2)}" />
+				<td><a th:href="@{/edit/{id}(id=${currentFighter.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentFighter.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+
+	<a href="../inputFighter">Add a new fighter</a>
+
+</body>
+</html>

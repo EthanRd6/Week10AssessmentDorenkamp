@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert New Fighter</title>
+</head>
+<body>
+	<form th:object="${newFighter}"th:action="@{/inputFighter}" method='POST'>		
+		
+		Name: <input name="name" size="20"><br />
+
+		Height: <input name="height" size="20"><br />
+
+		Weight: <input name="weight" size="20"><br />
+
+		Games Won: <input name="wins" size="20"><br />
+
+		Games Lost: <input name="losses" size="20"><br />
+
+		Games Tied: <input name="ties" size="20"><br />
+
+		<input name="submit" type="submit" value="submit" />
+	</form>
+	<a href="viewAll">View all Fighters</a>
+</body>
+</html>

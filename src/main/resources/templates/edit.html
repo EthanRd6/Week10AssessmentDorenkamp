@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Fighter</title>
+</head>
+<body>
+	<form th:object="${editFighter}"
+		th:action="@{/update/{id}(id=${editFighter.id})}" method='POST'>
+		
+		Name: <input name="name" size="20" th:field="*{name}"><br />
+
+		Height: <input name="height" size="20" th:field="*{height}"><br />
+
+		Weight: <input name="weight" size="20" th:field="*{weight}"><br />
+
+		Games Won: <input name="wins" size="20" th:field="*{wins}"><br />
+
+		Games Lost: <input name="losses" size="20" th:field="*{losses}"><br />
+
+		Games Tied: <input name="ties" size="20" th:field="*{ties}"><br />
+
+		<input name="submit" type="submit" value="submit" />
+	</form>
+	<a href="viewAll">View all Fighters</a>
+</body>
+</html>
