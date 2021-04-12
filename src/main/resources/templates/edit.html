@@ -2,26 +2,123 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Edit Fighter</title>
+<title>Insert New Fighter</title>
 </head>
 <body>
-	<form th:object="${editFighter}"
-		th:action="@{/update/{id}(id=${editFighter.id})}" method='POST'>
+		<form th:object="${editFighter}" th:action="@{/update/{id}(id=${editFighter.id})}" method='POST' id="fighterForm" onsubmit="ValidateInput(event)">
 		
-		Name: <input name="name" size="20" th:field="*{name}"><br />
+		Name: <input name="name" size="20" id="name" th:field="*{name}"><br />
 
-		Height: <input name="height" size="20" th:field="*{height}"><br />
+		Height: <input name="height" size="20" id="height" th:field="*{height}"><br />
 
-		Weight: <input name="weight" size="20" th:field="*{weight}"><br />
+		Weight: <input name="weight" size="20" id="weight" th:field="*{weight}"><br />
 
-		Games Won: <input name="wins" size="20" th:field="*{wins}"><br />
+		Games Won: <input name="wins" size="20" id="wins" th:field="*{wins}"><br />
 
-		Games Lost: <input name="losses" size="20" th:field="*{losses}"><br />
+		Games Lost: <input name="losses" size="20" id="losses" th:field="*{losses}"><br />
 
-		Games Tied: <input name="ties" size="20" th:field="*{ties}"><br />
+		Games Tied: <input name="ties" size="20" id="ties" th:field="*{ties}"><br />
 
 		<input name="submit" type="submit" value="submit" />
 	</form>
-	<a href="viewAll">View all Fighters</a>
+	<a href="/">View all Fighters</a>
 </body>
+<script type="text/javascript">
+ 	function ValidateInput(e) {   
+		
+ 		// Cuts down on repetition for getting values
+ 		var form = document.getElementById('fighterForm')
+ 		
+ 		// Checks that name field is not empty
+ 		if(form.name.value == "") {
+ 			e.preventDefault()
+ 			alert("Please enter the fighter's name");
+ 			form.name.focus();
+			return false;
+ 		}
+		
+ 		// Checks that height field is not empty
+ 		if(form.height.value == 0) {
+ 			e.preventDefault()
+ 			alert("Please enter the fighter's height");				
+ 			form.height.focus();
+			return false;
+ 		}
+ 		
+ 		// Checks that height field is not negative
+ 		if(form.height.value < 0) {
+ 			e.preventDefault()
+ 			alert("Please enter a height greater than zero")	
+ 			form.height.focus();
+			return false;
+ 		}
+		
+ 		// Checks that weight field is not empty
+ 		if(form.weight.value == 0) {
+ 			e.preventDefault()
+ 			alert("Please enter the fighter's weight");
+ 			form.weight.focus();
+ 			return false;
+ 		}
+ 		
+ 		// Checks that weight field is not negative
+ 		if(form.weight.value < 0) {
+ 			e.preventDefault()
+ 			alert("Please enter a weight greater than zero")	
+ 			form.weight.focus();
+			return false;
+ 		}
+
+ 		// Checks that wins field is not empty
+		if(form.wins.value == 0) {
+			e.preventDefault()
+ 			alert("Please enter the fighter's wins");
+ 			form.wins.focus();
+ 			return false;
+ 		}
+		
+ 		// Checks that wins field is not negative
+		if(form.wins.value < 0) {
+ 			e.preventDefault()
+ 			alert("Please enter a wins value greater than zero")	
+ 			form.wins.focus();
+			return false;
+ 		}
+		
+ 		// Checks that losses field is not empty
+ 		if(form.losses.value == 0) {
+ 			e.preventDefault()
+ 			alert("Please enter the fighter's losses");
+ 			form.losses.focus();
+ 			return false;
+ 		}
+ 		
+ 		// Checks that losses field is not negative
+ 		if(form.losses.value < 0) {
+ 			e.preventDefault()
+ 			alert("Please enter a losses value greater than zero")	
+ 			form.losses.focus();
+			return false;
+ 		}
+		
+ 		// Checks that ties field is not empty
+ 		if(form.ties.value == 0) {
+ 			e.preventDefault()
+ 			alert("Please enter the fighter's ties");
+ 			form.ties.focus();
+ 			return false;
+ 		}
+ 		
+ 		// Checks that ties field is not negative
+ 		if(form.ties.value < 0) {
+ 			e.preventDefault()
+ 			alert("Please enter a ties value greater than zero")	
+ 			form.ties.focus();
+			return false;
+ 		}
+
+ 		return true; 
+		
+ 	} 
+</script>
 </html>

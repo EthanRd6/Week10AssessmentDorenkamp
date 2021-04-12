@@ -42,7 +42,6 @@ public class Fighter {
 		this.wins = wins;
 		this.losses = losses;
 		this.ties = ties;
-	//	this.average = this.wins / (this.wins + this.losses + this.ties);
 		calculateAverage();
 	}
 
@@ -55,10 +54,9 @@ public class Fighter {
 		this.wins = wins;
 		this.losses = losses;
 		this.ties = ties;
-	//	this.average = this.wins / (this.wins + this.losses + this.ties);
 		calculateAverage();
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -123,17 +121,13 @@ public class Fighter {
 	}
 
 	public void setAverage(double average) {
-		calculateAverage();
-	}
+		this.average = average;
+	} 
 
 	@Override
 	public String toString() {
 		return "Fighter [id=" + id + ", name=" + name + ", height=" + height + ", weight=" + weight + ", wins=" + wins
-				+ ", losses=" + losses + ", ties=" + ties + ", average=" + average + ", getId()=" + getId()
-				+ ", getName()=" + getName() + ", getHeight()=" + getHeight() + ", getWeight()=" + getWeight()
-				+ ", getWins()=" + getWins() + ", getLosses()=" + getLosses() + ", getTies()=" + getTies()
-				+ ", getAverage()=" + getAverage() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", losses=" + losses + ", ties=" + ties + ", average=" + average + "]";
 	}
 
 	// Called upon object creation when given wins, losses, and ties. Also called when wins, losses, or ties are updated

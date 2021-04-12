@@ -16,6 +16,7 @@ import dmacc.repository.FighterRepository;
  */
 @Controller
 public class WebController {
+	
 	@Autowired
 	FighterRepository repo;
 
